@@ -1,0 +1,84 @@
+{
+    "projects": [
+      {
+        "id": "project-main-app",
+        "name": "Main Product",
+        "enabled": true,
+        
+        "notion": {
+          "databaseId": "abc123...",
+          "statusProperty": "Status",
+          "titleProperty": "Title",
+          "priorityProperty": "Priority"
+        },
+        
+        "github": {
+          "owner": "myorg",
+          "repo": "main-product",
+          "branch": "main",
+          "baseBranch": "develop"
+        },
+        
+        "slack": {
+          "channelId": "C12345ABC",
+          "channelName": "#qa-main-product",
+          "mentionOnError": ["@dev-team"],
+          "mentionOnCritical": ["@on-call"]
+        },
+        
+        "agents": {
+          "qa-analyzer": { "enabled": true, "timeout": 300000 },
+          "action-classifier": { "enabled": true },
+          "code-agent": { 
+            "enabled": true,
+            "permissions": {
+              "read": ["**/*"],
+              "write": ["src/**/*", "tests/**/*"],
+              "execute": ["npm test", "npm run lint"]
+            }
+          },
+          "pr-manager": { "enabled": true }
+        },
+        
+        "rules": {
+          "autoMerge": false,
+          "requireApproval": true,
+          "minTestCoverage": 80,
+          "maxComplexity": "moderate"
+        }
+      },
+      
+      {
+        "id": "project-mobile-app",
+        "name": "Mobile App",
+        "enabled": true,
+        
+        "notion": {
+          "databaseId": "def456...",
+          "statusProperty": "Status"
+        },
+        
+        "github": {
+          "owner": "myorg",
+          "repo": "mobile-app",
+          "branch": "main"
+        },
+        
+        "slack": {
+          "channelId": "C67890XYZ",
+          "channelName": "#qa-mobile"
+        },
+        
+        "agents": {
+          "code-agent": {
+            "enabled": true,
+            "permissions": {
+              "read": ["**/*"],
+              "write": ["src/**/*", "__tests__/**/*"],
+              "execute": ["npm test", "npm run type-check"]
+            }
+          }
+        }
+      }
+    ]
+  }
