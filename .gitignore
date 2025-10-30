@@ -1,6 +1,9 @@
 /docs
 /samples
-
+/logs
+/dist
 
 .env
 .env.*
+
+node_modules
