@@ -10,6 +10,8 @@
     "start": "node dist/index.js",
     "test": "vitest",
     "test:watch": "vitest --watch",
+    "test:connections": "npm run build && node dist/../scripts/test-connections.js",
+    "test:phase0": "npm run test:connections",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
