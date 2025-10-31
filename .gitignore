@@ -1,9 +1,10 @@
-/docs
 /samples
 /logs
 /dist
 
 .env
 .env.*
+!.env.example
+!.env.phase0
 
 node_modules
